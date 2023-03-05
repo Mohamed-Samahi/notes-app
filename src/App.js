@@ -7,10 +7,10 @@ import Loading from "./components/Loading";
 import { UserContextProvider } from "./context/UserContext";
 import { lazy, Suspense } from "react";
 
-const Home = lazy(() => import("./pages/Home"));
 const UserNotes = lazy(() => import("./pages/UserNotes"));
 const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
+const Home = lazy(() => import("./pages/Home"));
 
 function App() {
   return (
