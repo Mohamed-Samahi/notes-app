@@ -25,15 +25,9 @@ const UserNotes = () => {
       if (title === "" && content === "") {
         return;
       }
-      // const id =
-      //   Date.now().toString(36) +
-      //   Math.floor(
-      //     Math.pow(10, 12) + Math.random() * 9 * Math.pow(10, 12)
-      //   ).toString(36);
 
       const id = crypto.randomUUID();
 
-      // setContent(content.replace(/\n\r?/g, "<br />"));
       await addNote(`${user?.email}`, id, title, content);
     } else {
       alert("please log in to add a note");

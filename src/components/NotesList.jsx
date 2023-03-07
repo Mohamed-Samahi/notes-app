@@ -6,6 +6,8 @@ import { db } from "../firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 
 import { UserAuth } from "../context/UserContext";
+import { DataAuth } from "../context/DataContext";
+
 import Note from "./Note";
 import NoteDetails from "./NoteDetails";
 import Loading from "./Loading";
@@ -33,26 +35,34 @@ const NotesList = () => {
 
   const { user, deleteNote } = UserAuth();
 
-  let elementTitle, elementContent, elementId;
+  const {
+    noteTitle,
+    noteContent,
+    noteID,
+    setNoteTitle,
+    setNoteContent,
+    setNoteID,
+  } = DataAuth();
 
   const contentRetreival = (e) => {
-    elementTitle =
+    setNoteTitle(
       e.target.parentElement.parentElement.children[0].children[0].children[0]
-        .innerHTML;
-    elementContent =
+        .innerHTML
+    );
+    setNoteContent(
       e.target.parentElement.parentElement.children[0].children[0].children[1]
-        .innerHTML;
-    elementId =
+        .innerHTML
+    );
+    setNoteID(
       e.target.parentElement.parentElement.children[0].children[0].attributes[0]
-        .value;
-    return { elementTitle, elementContent, elementId };
+        .value
+    );
   };
 
   const showOverlayHandler = (e) => {
     if (e.target.value === "Edit") {
       setEdit(true);
-      const data = contentRetreival(e);
-      return data;
+      contentRetreival(e);
     } else {
       setEdit(!edit);
     }
@@ -60,7 +70,7 @@ const NotesList = () => {
 
   const deleteHandler = async (e) => {
     contentRetreival(e);
-    await deleteNote(`${user?.email}`, elementId, elementTitle, elementContent);
+    await deleteNote(`${user?.email}`, noteID, noteTitle, noteContent);
   };
 
   useEffect(() => {
@@ -123,6 +133,7 @@ const NotesList = () => {
                 />
                 <div className="flex justify-between items-center w-[40%]">
                   <button
+                    value="Edit"
                     onClick={showOverlayHandler}
                     className="w-[48%] text-center text-[0.65rem] sm:text-xs bg-yellow-300 px-1 py-1 rounded-lg"
                   >
@@ -139,9 +150,9 @@ const NotesList = () => {
             ))}
         {edit && (
           <NoteDetails
-            titleData={elementTitle}
-            contentData={elementContent}
-            idData={elementId}
+            // titleData={elementTitle}
+            // contentData={elementContent}
+            // idData={elementId}
             setEdit={showOverlayHandler}
           />
         )}

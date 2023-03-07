@@ -6,6 +6,7 @@ import Loading from "./components/Loading";
 
 import { UserContextProvider } from "./context/UserContext";
 import { lazy, Suspense } from "react";
+import { DataContextProvider } from "./context/DataContext";
 
 const UserNotes = lazy(() => import("./pages/UserNotes"));
 const Login = lazy(() => import("./pages/Login"));
@@ -15,43 +16,45 @@ const Home = lazy(() => import("./pages/Home"));
 function App() {
   return (
     <UserContextProvider>
-      <Header />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Suspense fallback={<Loading />}>
-              <Home />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <Suspense fallback={<Loading />}>
-              <Login />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/signup"
-          element={
-            <Suspense fallback={<Loading />}>
-              <Signup />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/notes"
-          element={
-            <ProtectedRoute>
+      <DataContextProvider>
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={
               <Suspense fallback={<Loading />}>
-                <UserNotes />
+                <Home />
               </Suspense>
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Login />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Signup />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/notes"
+            element={
+              <ProtectedRoute>
+                <Suspense fallback={<Loading />}>
+                  <UserNotes />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </DataContextProvider>
     </UserContextProvider>
   );
 }

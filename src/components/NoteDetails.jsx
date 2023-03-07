@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from "react";
 
 import { UserAuth } from "../context/UserContext";
+import { DataAuth } from "../context/DataContext";
 import Button from "./Button";
 
-const NoteDetails = ({ titleData, contentData, idData, setEdit }) => {
-  // const data = setEdit();
-  // console.log(data);
-  const prevTitle = titleData;
-  const prevContent = contentData;
-  const prevId = idData;
-  console.log("details");
-  const [title, setTitle] = useState(prevTitle);
-  const [content, setContent] = useState(prevContent);
+const NoteDetails = ({ setEdit }) => {
+  const { noteTitle, noteContent, noteID } = DataAuth();
 
-  useEffect(() => {
-    setTitle(titleData);
-    setContent(contentData);
-  }, [titleData, contentData]);
+  const prevTitle = noteTitle;
+  const prevContent = noteContent;
+  const prevId = noteID;
+
+  const [title, setTitle] = useState(noteTitle);
+  const [content, setContent] = useState(noteContent);
+  console.log(title, content);
 
   const titleHandler = (e) => {
     setTitle(e.target.value);
@@ -28,9 +25,11 @@ const NoteDetails = ({ titleData, contentData, idData, setEdit }) => {
 
   const { user, deleteNote, addNote } = UserAuth();
 
-  const editHandler = () => {
-    deleteNote(`${user?.email}`, prevId, prevTitle, prevContent);
-    addNote(`${user?.email}`, title, content);
+  const id = crypto.randomUUID();
+
+  const editHandler = async () => {
+    await deleteNote(`${user?.email}`, prevId, prevTitle, prevContent);
+    await addNote(`${user?.email}`, id, title, content);
     setEdit(false);
   };
 
