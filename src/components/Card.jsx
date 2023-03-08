@@ -5,7 +5,7 @@ const Card = ({ children, width }) => {
     <div
       className={`${
         width ? width : ""
-      }h-auto m-auto sm:w-[400px] rounded-lg p-8 bg-white`}
+      }h-auto m-auto w-[325px] sm:w-[400px] rounded-lg p-8 bg-white`}
     >
       {children}
     </div>
