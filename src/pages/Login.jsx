@@ -39,14 +39,14 @@ const Login = () => {
   };
 
   return (
-    <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+    <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] mx-auto max-w-7xl">
       <Card>
         <form onSubmit={submitHandler} action="" className="flex flex-col">
           <h1 className="text-3xl font-bold text-black text-center mb-[40px]">
             Login
           </h1>
           {error ? (
-            <h2 className="bg-red-500  text-black font-bold p-4 my-4 rounded">
+            <h2 className="p-4 my-4 font-bold text-black bg-red-500 rounded">
               {error}
             </h2>
           ) : null}
@@ -72,7 +72,7 @@ const Login = () => {
           <Button>Login</Button>
           <p className="my-4 text-xs text-center">
             Don't have an account?{" "}
-            <Link to="/signup" className="text-yellow-300 font-bold text-xs">
+            <Link to="/signup" className="text-xs font-bold text-yellow-300">
               Signup
             </Link>
           </p>

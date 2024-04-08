@@ -48,14 +48,14 @@ const Signup = () => {
   };
 
   return (
-    <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+    <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] mx-auto max-w-7xl">
       <Card>
         <form onSubmit={submitHandler} action="" className="flex flex-col">
           <h1 className="text-3xl font-bold text-black text-center mb-[40px]">
             Sign Up
           </h1>
           {error ? (
-            <h2 className="bg-red-500  text-black font-bold p-4 my-4 rounded">
+            <h2 className="p-4 my-4 font-bold text-black bg-red-500 rounded">
               {error}
             </h2>
           ) : null}
@@ -79,14 +79,14 @@ const Signup = () => {
             className="p-4 rounded-xl shadow-md shadow-slate-300 mb-4 border border-slate-300 focus:outline-none focus:border-slate-500 w-[100%] max-w-[400px]"
           />
           {!passwordIsValid && (
-            <p className="text-red-600 font-bold mb-4">
+            <p className="mb-4 font-bold text-red-600">
               Invalid Password! at least 6 characters
             </p>
           )}
           <Button>Sign up</Button>
           <p className="my-4 text-xs text-center">
             Already have an account?{" "}
-            <Link to="/login" className="text-yellow-300 font-bold text-xs">
+            <Link to="/login" className="text-xs font-bold text-yellow-300">
               Login
             </Link>
           </p>

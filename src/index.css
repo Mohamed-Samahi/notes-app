@@ -7,7 +7,7 @@
 }
 
 body {
-  background-image: url("../src/assets/notesBackground5.jpg");
+  background-image: linear-gradient(to bottom, #cff89a, #FFFFCC);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;

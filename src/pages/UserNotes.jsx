@@ -28,20 +28,21 @@ const UserNotes = () => {
 
       const id = crypto.randomUUID();
 
-      await addNote(`${user?.email}`, id, title, content);
+      const noteTitle = title;
+      const noteContent = content;
+      setTitle("");
+      setContent("");
+      await addNote(`${user?.email}`, id, noteTitle, noteContent);
     } else {
       alert("please log in to add a note");
     }
-
-    setTitle("");
-    setContent("");
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex items-center justify-center mx-auto max-w-7xl">
       <div className="overflow-hidden flex flex-col sm:flex-row items-center justify-around p-4  bg-white rounded-lg h-fit w-[98%] max-w-[90rem] my-4 mx-auto ">
         <div className="sm:w-[40%] mb-[20px] sm:m-0">
-          <h1 className="p-3 pl-0 font-bold text-xl">Add to your list!</h1>
+          <h1 className="p-3 pl-0 text-xl font-bold">Add to your list!</h1>
           <form onSubmit={submitHandler} action="">
             <input
               type="text"
@@ -49,7 +50,7 @@ const UserNotes = () => {
               id="noteTitle"
               autoComplete="off"
               placeholder="Note Header"
-              className="font-bold mb-4 p-4 rounded-xl border border-slate-300 focus:outline-none focus:border-slate-500 w-full"
+              className="w-full p-4 mb-4 font-bold border rounded-xl border-slate-300 focus:outline-none focus:border-slate-500"
               value={title}
               onChange={titleInputHandler}
             />

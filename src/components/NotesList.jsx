@@ -36,9 +36,9 @@ const NotesList = () => {
   const { user, deleteNote } = UserAuth();
 
   const {
-    noteTitle,
-    noteContent,
-    noteID,
+    // noteTitle,
+    // noteContent,
+    // noteID,
     setNoteTitle,
     setNoteContent,
     setNoteID,
@@ -57,6 +57,17 @@ const NotesList = () => {
       e.target.parentElement.parentElement.children[0].children[0].attributes[0]
         .value
     );
+    return {
+      noteTitle:
+        e.target.parentElement.parentElement.children[0].children[0].children[0]
+          .innerHTML,
+      noteContent:
+        e.target.parentElement.parentElement.children[0].children[0].children[1]
+          .innerHTML,
+      noteID:
+        e.target.parentElement.parentElement.children[0].children[0]
+          .attributes[0].value,
+    };
   };
 
   const showOverlayHandler = (e) => {
@@ -69,7 +80,7 @@ const NotesList = () => {
   };
 
   const deleteHandler = async (e) => {
-    contentRetreival(e);
+    const { noteTitle, noteContent, noteID } = contentRetreival(e);
     await deleteNote(`${user?.email}`, noteID, noteTitle, noteContent);
   };
 
@@ -107,11 +118,10 @@ const NotesList = () => {
         />
       </div>
 
-      <div className="overflow-y-auto h-[453px] w-full border border-slate-300 rounded-xl p-4">
+      <div className="overflow-y-auto h-[453px] w-full border border-slate-300 rounded-xl p-4 relative">
         {!connection && (
           <h1 className="text-sm text-gray-400">please check your network</h1>
         )}
-        {isLoading && <Loading />}
         {!isLoading && notesListLength === 0 && (
           <h1 className="text-sm text-gray-400">You don't have any notes</h1>
         )}
@@ -125,7 +135,7 @@ const NotesList = () => {
               );
             })
             .map((note) => (
-              <div className="flex justify-between items-center border border-slate-300 rounded-lg px-2 my-2">
+              <div className="flex justify-between items-center border border-slate-300 rounded-lg px-2 my-2 overflow-hidden">
                 <Note
                   id={note?.id}
                   title={note?.title}
