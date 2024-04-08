@@ -21,9 +21,9 @@ const UserContext = createContext();
 export function UserContextProvider({ children }) {
   const [user, setUser] = useState({});
 
-  function signUp(email, password) {
-    createUserWithEmailAndPassword(auth, email, password);
-    setDoc(doc(db, "users", email), { notes: [] });
+  async function signUp(email, password) {
+    await createUserWithEmailAndPassword(auth, email, password);
+    await setDoc(doc(db, "users", email), { notes: [] });
   }
 
   function login(email, password) {
@@ -34,8 +34,8 @@ export function UserContextProvider({ children }) {
     return signOut(auth);
   }
 
-  function addNote(email, id, title, content) {
-    updateDoc(doc(db, "users", email), {
+  async function addNote(email, id, title, content) {
+    await updateDoc(doc(db, "users", email), {
       notes: arrayUnion({
         id: id,
         title: title !== "" ? title : "Unknown",
@@ -44,8 +44,8 @@ export function UserContextProvider({ children }) {
     });
   }
 
-  function deleteNote(email, id, title, content) {
-    updateDoc(doc(db, "users", email), {
+  async function deleteNote(email, id, title, content) {
+    await updateDoc(doc(db, "users", email), {
       notes: arrayRemove({
         id: id,
         title: title,
