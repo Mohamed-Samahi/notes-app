@@ -152,7 +152,7 @@ const NotesList = () => {
                   </Button>
                   <Button
                     onClick={deleteHandler}
-                    className="w-[48%] text-center text-[0.65rem] sm:text-xs bg-yellow-300 px-1 py-1 rounded-lg"
+                    className="w-[48%] text-center text-[0.65rem] sm:text-xs px-1 py-1 rounded-lg"
                   >
                     Delete
                   </Button>
