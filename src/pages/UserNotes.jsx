@@ -39,8 +39,8 @@ const UserNotes = () => {
   };
 
   return (
-    <div className="flex items-center justify-center mx-auto max-w-7xl">
-      <div className="overflow-hidden flex flex-col sm:flex-row items-center justify-around p-4  bg-white rounded-lg h-fit w-[98%] max-w-[90rem] my-4 mx-auto ">
+    <div className="flex items-center justify-center h-full mx-auto max-w-7xl">
+      <div className="overflow-hidden flex flex-col sm:flex-row items-center justify-around p-4 bg-white rounded-3xl w-full max-w-[90rem] my-4 mx-auto ">
         <div className="sm:w-[40%] mb-[20px] sm:m-0">
           <h1 className="p-3 pl-0 text-xl font-bold">Add to your list!</h1>
           <form onSubmit={submitHandler} action="">
@@ -65,8 +65,8 @@ const UserNotes = () => {
             <Button>Add Note</Button>
           </form>
         </div>
-        <div className="mb-[20px] sm:m-0 h-[2px] sm:h-[574px] w-full sm:w-[2px] bg-yellow-300">
-          <span className="block w-[5px] rotate-180 sm:rotate-90 border-[20px] border-b-yellow-300 relative left-[50%] sm:left-[20px] top-0 sm:top-[50%] translate-x-[-50%] sm:translate-y-[-50%] border-r-transparent border-t-transparent border-l-transparent"></span>
+        <div className="mb-[20px] sm:m-0 h-[2px] sm:h-[574px] w-full sm:w-[2px] bg-[#3fa4af]">
+          <span className="block w-[5px] rotate-180 sm:rotate-90 border-[20px] border-b-[#3fa4af] relative left-[50%] sm:left-[20px] top-0 sm:top-[50%] translate-x-[-50%] sm:translate-y-[-50%] border-r-transparent border-t-transparent border-l-transparent"></span>
         </div>
         <div className="w-full sm:w-[45%]">
           <NotesList />

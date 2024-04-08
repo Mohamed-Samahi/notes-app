@@ -11,6 +11,7 @@ import { DataAuth } from "../context/DataContext";
 import Note from "./Note";
 import NoteDetails from "./NoteDetails";
 import Loading from "./Loading";
+import Button from "./Button";
 
 const NotesList = () => {
   const [notes, setNotes] = useState([]);
@@ -112,7 +113,7 @@ const NotesList = () => {
           name="search"
           id="search"
           placeholder="search notes"
-          className="mb-4 p-4 pl-10 rounded-xl border border-slate-300 focus:outline-none focus:border-slate-500 w-full"
+          className="w-full p-4 pl-10 mb-4 border rounded-xl border-slate-300 focus:outline-none focus:border-slate-500"
           value={search}
           onChange={searchHandler}
         />
@@ -130,31 +131,31 @@ const NotesList = () => {
             ?.filter((item) => {
               return (
                 item?.title.toLowerCase().indexOf(search.toLowerCase()) !==
-                  -1 ||
+                -1 ||
                 item?.content.toLowerCase().indexOf(search.toLowerCase()) !== -1
               );
             })
             .map((note) => (
-              <div className="flex justify-between items-center border border-slate-300 rounded-lg px-2 my-2 overflow-hidden">
+              <div className="flex items-center justify-between px-2 my-2 overflow-hidden border rounded-lg border-slate-300">
                 <Note
                   id={note?.id}
                   title={note?.title}
                   content={note?.content}
                 />
                 <div className="flex justify-between items-center w-[40%]">
-                  <button
+                  <Button
                     value="Edit"
                     onClick={showOverlayHandler}
-                    className="w-[48%] text-center text-[0.65rem] sm:text-xs bg-yellow-300 px-1 py-1 rounded-lg"
+                    className="w-[48%] text-center text-[0.65rem] sm:text-xs px-1 py-1 rounded-lg"
                   >
                     Edit
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     onClick={deleteHandler}
                     className="w-[48%] text-center text-[0.65rem] sm:text-xs bg-yellow-300 px-1 py-1 rounded-lg"
                   >
                     Delete
-                  </button>
+                  </Button>
                 </div>
               </div>
             ))}

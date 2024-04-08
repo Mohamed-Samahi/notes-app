@@ -21,9 +21,9 @@ const Header = () => {
   };
 
   return (
-    <div className="flex items-center justify-between w-full px-4 pt-4 mx-auto max-w-7xl">
+    <div className="flex items-center justify-between w-full py-4 mx-auto max-w-7xl">
       <Link to="/">
-        <h2 className="font-bold text-black sm:text-xl">Note</h2>
+        <img src="/assets/logo.png" alt="logo" width={56} height={56} />
       </Link>
       {user?.email ? (
         <div className="max-w-[8rem] w-[100%]">

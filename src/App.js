@@ -17,43 +17,47 @@ function App() {
   return (
     <UserContextProvider>
       <DataContextProvider>
-        <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Suspense fallback={<Loading />}>
-                <Home />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <Suspense fallback={<Loading />}>
-                <Login />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/signup"
-            element={
-              <Suspense fallback={<Loading />}>
-                <Signup />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/notes"
-            element={
-              <ProtectedRoute>
-                <Suspense fallback={<Loading />}>
-                  <UserNotes />
-                </Suspense>
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
+        <div className="flex flex-col items-center w-screen h-screen">
+          <Header />
+          <div className="flex-1 flex-grow w-full">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <Home />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <Login />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/signup"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <Signup />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/notes"
+                element={
+                  <ProtectedRoute>
+                    <Suspense fallback={<Loading />}>
+                      <UserNotes />
+                    </Suspense>
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+          </div>
+        </div>
       </DataContextProvider>
     </UserContextProvider>
   );
