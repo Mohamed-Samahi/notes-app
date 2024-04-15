@@ -50,7 +50,7 @@ const UserNotes = () => {
               id="noteTitle"
               autoComplete="off"
               placeholder="Note Header"
-              className="w-full p-4 mb-4 font-bold border rounded-xl border-slate-300 focus:outline-none focus:border-slate-500"
+              className="w-full p-4 mb-4 font-bold border rounded-xl border-yellow-3000 focus:outline-none focus:border-slate-500"
               value={title}
               onChange={titleInputHandler}
             />
@@ -58,15 +58,15 @@ const UserNotes = () => {
               name="noteContent"
               id="noteContent"
               placeholder="Your note goes here..."
-              className="mb-2 p-4 resize-none rounded-xl border border-slate-300 focus:outline-none focus:border-slate-500 w-full h-[200px] sm:h-[377px] text-sm"
+              className="mb-2 p-4 resize-none rounded-xl border border-yellow-3000 focus:outline-none focus:border-slate-500 w-full h-[200px] sm:h-[377px] text-sm"
               value={content}
               onChange={contentInputHandler}
             />
             <Button>Add Note</Button>
           </form>
         </div>
-        <div className="mb-[20px] sm:m-0 h-[2px] sm:h-[574px] w-full sm:w-[2px] bg-[#3fa4af]">
-          <span className="block w-[5px] rotate-180 sm:rotate-90 border-[20px] border-b-[#3fa4af] relative left-[50%] sm:left-[20px] top-0 sm:top-[50%] translate-x-[-50%] sm:translate-y-[-50%] border-r-transparent border-t-transparent border-l-transparent"></span>
+        <div className="mb-[20px] sm:m-0 h-[2px] sm:h-[574px] w-full sm:w-[2px] bg-yellow-300">
+          <span className="block w-[5px] rotate-180 sm:rotate-90 border-[20px] border-b-yellow-300 relative left-[50%] sm:left-[20px] top-0 sm:top-[50%] translate-x-[-50%] sm:translate-y-[-50%] border-r-transparent border-t-transparent border-l-transparent"></span>
         </div>
         <div className="w-full sm:w-[45%]">
           <NotesList />

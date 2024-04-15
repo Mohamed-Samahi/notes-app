@@ -56,7 +56,7 @@ const Form = () => {
           onChange={emailChangeHandler}
           placeholder="email address"
           autoComplete="off"
-          className="p-4 rounded-xl shadow-md shadow-slate-300 mb-4 border border-slate-300 focus:outline-none focus:border-slate-500 w-[100%] max-w-[400px]"
+          className="p-4 rounded-xl shadow-md shadow-yellow-3000 mb-4 border border-yellow-3000 focus:outline-none focus:border-slate-500 w-[100%] max-w-[400px]"
         />
         {!emailIsValid && (
           <p className="text-red-600 font-bold mb-4">Invalid Email!</p>
@@ -68,7 +68,7 @@ const Form = () => {
           value={password}
           onChange={passwordChangeHandler}
           placeholder="password"
-          className="p-4 rounded-xl shadow-md shadow-slate-300 mb-4 border border-slate-300 focus:outline-none focus:border-slate-500 w-[100%] max-w-[400px]"
+          className="p-4 rounded-xl shadow-md shadow-yellow-3000 mb-4 border border-yellow-3000 focus:outline-none focus:border-slate-500 w-[100%] max-w-[400px]"
         />
         {!passwordIsValid && (
           <p className="text-red-600 font-bold mb-4">Invalid Password!</p>

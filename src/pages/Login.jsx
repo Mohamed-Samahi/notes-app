@@ -58,7 +58,7 @@ const Login = () => {
             onChange={emailChangeHandler}
             placeholder="email address"
             autoComplete="on"
-            className="p-4 rounded-xl shadow-md shadow-slate-300 mb-4 border border-slate-300 focus:outline-none focus:border-slate-500 w-[100%] max-w-[400px]"
+            className="p-4 rounded-xl shadow-md shadow-yellow-3000 mb-4 border border-yellow-3000 focus:outline-none focus:border-slate-500 w-[100%] max-w-[400px]"
           />
           <input
             type="password"
@@ -67,7 +67,7 @@ const Login = () => {
             value={password}
             onChange={passwordChangeHandler}
             placeholder="password"
-            className="p-4 rounded-xl shadow-md shadow-slate-300 mb-4 border border-slate-300 focus:outline-none focus:border-slate-500 w-[100%] max-w-[400px]"
+            className="p-4 rounded-xl shadow-md shadow-yellow-3000 mb-4 border border-yellow-3000 focus:outline-none focus:border-slate-500 w-[100%] max-w-[400px]"
           />
           <Button>Login</Button>
           <p className="my-4 text-xs text-center">

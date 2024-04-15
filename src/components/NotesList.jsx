@@ -113,13 +113,13 @@ const NotesList = () => {
           name="search"
           id="search"
           placeholder="search notes"
-          className="w-full p-4 pl-10 mb-4 border rounded-xl border-slate-300 focus:outline-none focus:border-slate-500"
+          className="w-full p-4 pl-10 mb-4 border rounded-xl border-yellow-3000 focus:outline-none focus:border-slate-500"
           value={search}
           onChange={searchHandler}
         />
       </div>
 
-      <div className="overflow-y-auto h-[453px] w-full border border-slate-300 rounded-xl p-4 relative">
+      <div className="overflow-y-auto h-[453px] w-full border border-yellow-3000 rounded-xl p-4 relative">
         {!connection && (
           <h1 className="text-sm text-gray-400">please check your network</h1>
         )}

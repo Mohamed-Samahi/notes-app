@@ -40,7 +40,7 @@ const NoteDetails = ({ setEdit }) => {
           onClick={setEdit}
           className="cursor-pointer fixed top-0 left-0 w-screen h-screen bg-black opacity-60"
         ></div>
-        <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-43%] p-4 rounded-lg bg-white border border-slate-300 z-[1000] w-[60%] m-auto">
+        <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-43%] p-4 rounded-lg bg-white border border-yellow-3000 z-[1000] w-[60%] m-auto">
           <form onSubmit={editHandler} action="">
             <input
               type="text"
@@ -48,7 +48,7 @@ const NoteDetails = ({ setEdit }) => {
               id="noteTitle"
               autoComplete="off"
               placeholder="Note Header"
-              className="font-bold mb-4 p-4 rounded-xl border border-slate-300 focus:outline-none focus:border-slate-500 w-full"
+              className="font-bold mb-4 p-4 rounded-xl border border-yellow-3000 focus:outline-none focus:border-slate-500 w-full"
               value={title}
               onChange={titleHandler}
             />
@@ -56,7 +56,7 @@ const NoteDetails = ({ setEdit }) => {
               name="noteContent"
               id="noteContent"
               placeholder="Your note goes here..."
-              className="mb-2 p-4 resize-none rounded-xl border border-slate-300 focus:outline-none focus:border-slate-500 w-full h-[200px] sm:h-[377px] text-sm"
+              className="mb-2 p-4 resize-none rounded-xl border border-yellow-3000 focus:outline-none focus:border-slate-500 w-full h-[200px] sm:h-[377px] text-sm"
               value={content}
               onChange={contentHandler}
             />
