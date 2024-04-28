@@ -1,20 +1,21 @@
 import React from "react";
 
-const Note = ({ id, title, content }) => {
+const Note = React.memo(({ id, title, content }) => {
+  console.log("asfd")
   return (
     <>
       <div className="w-[60%]">
         <div id={id} className="w-full">
-          <h1 className="font-bold text-xl text-ellipsis whitespace-nowrap overflow-hidden">
+          <h1 className="overflow-hidden text-xl font-bold text-ellipsis whitespace-nowrap">
             {title}
           </h1>
-          <p className="text-sm text-gray-500 indent-1 w-full text-ellipsis whitespace-nowrap overflow-hidden visible">
+          <p className="visible w-full overflow-hidden text-sm text-gray-500 indent-1 text-ellipsis whitespace-nowrap">
             {content}
           </p>
         </div>
       </div>
     </>
   );
-};
+});
 
 export default Note;

@@ -9,7 +9,7 @@ const UserNotes = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const { user, addNote } = UserAuth();
+  const { user, handleAddNote } = UserAuth();
 
   const titleInputHandler = (e) => {
     setTitle(e.target.value);
@@ -32,7 +32,7 @@ const UserNotes = () => {
       const noteContent = content;
       setTitle("");
       setContent("");
-      await addNote(`${user?.email}`, id, noteTitle, noteContent);
+      await handleAddNote(`${user?.email}`, id, noteTitle, noteContent);
     } else {
       alert("please log in to add a note");
     }

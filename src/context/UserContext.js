@@ -12,8 +12,10 @@ import {
   setDoc,
   doc,
   updateDoc,
-  arrayUnion,
-  arrayRemove,
+  deleteDoc,
+  addDoc,
+  Timestamp,
+  collection
 } from "firebase/firestore";
 
 const UserContext = createContext();
@@ -23,7 +25,7 @@ export function UserContextProvider({ children }) {
 
   async function signUp(email, password) {
     await createUserWithEmailAndPassword(auth, email, password);
-    await setDoc(doc(db, "users", email), { notes: [] });
+    await setDoc(doc(db, "users", email, 'notes'));
   }
 
   function login(email, password) {
@@ -34,24 +36,39 @@ export function UserContextProvider({ children }) {
     return signOut(auth);
   }
 
-  async function addNote(email, id, title, content) {
-    await updateDoc(doc(db, "users", email), {
-      notes: arrayUnion({
-        id: id,
-        title: title !== "" ? title : "Unknown",
-        content: content !== "" ? content : "Unknown",
-      }),
-    });
-  }
-
-  async function deleteNote(email, id, title, content) {
-    await updateDoc(doc(db, "users", email), {
-      notes: arrayRemove({
+  async function handleAddNote(email, id, title, content) {
+    try {
+      await addDoc(collection(db, 'users', email, 'notes'), {
         id: id,
         title: title,
         content: content,
-      }),
-    });
+        created: Timestamp.now()
+      })
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const handleUpdateNote = async (id, title, content) => {
+    const taskDocRef = doc(db, 'users', user?.email, 'notes', id)
+
+    try {
+      await updateDoc(taskDocRef, {
+        title: title || '',
+        content: content || ''
+      })
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  const handleDeleteNote = async (id) => {
+    const taskDocRef = doc(db, 'users', user?.email, 'notes', id)
+    try {
+      await deleteDoc(taskDocRef)
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   useEffect(() => {
@@ -66,7 +83,7 @@ export function UserContextProvider({ children }) {
 
   return (
     <UserContext.Provider
-      value={{ signUp, login, logout, addNote, deleteNote, user }}
+      value={{ user, signUp, login, logout, handleAddNote, handleUpdateNote, handleDeleteNote }}
     >
       {children}
     </UserContext.Provider>

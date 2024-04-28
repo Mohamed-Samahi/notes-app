@@ -30,7 +30,7 @@ const Header = () => {
           <Button onClick={logoutHandler}>Logout</Button>
         </div>
       ) : (
-        <div className="flex items-center justify-between w-full max-w-fit">
+        <div className="flex items-center justify-between w-full max-w-max">
           <div className="flex-1">
             <Link to="/login">
               <Button backgroundColor={"bg-white"}>Login</Button>

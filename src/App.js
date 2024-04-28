@@ -6,7 +6,6 @@ import Loading from "./components/Loading";
 
 import { UserContextProvider } from "./context/UserContext";
 import { lazy, Suspense } from "react";
-import { DataContextProvider } from "./context/DataContext";
 
 const UserNotes = lazy(() => import("./pages/UserNotes"));
 const Login = lazy(() => import("./pages/Login"));
@@ -16,49 +15,47 @@ const Home = lazy(() => import("./pages/Home"));
 function App() {
   return (
     <UserContextProvider>
-      <DataContextProvider>
-        <div className="flex flex-col items-center w-screen h-screen">
-          <Header />
-          <div className="flex-1 flex-grow w-full">
-            <Routes>
-              <Route
-                path="/"
-                element={
+      <div className="flex flex-col items-center w-screen h-screen">
+        <Header />
+        <div className="flex-1 flex-grow w-full">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <Home />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <Login />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <Signup />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/notes"
+              element={
+                <ProtectedRoute>
                   <Suspense fallback={<Loading />}>
-                    <Home />
+                    <UserNotes />
                   </Suspense>
-                }
-              />
-              <Route
-                path="/login"
-                element={
-                  <Suspense fallback={<Loading />}>
-                    <Login />
-                  </Suspense>
-                }
-              />
-              <Route
-                path="/signup"
-                element={
-                  <Suspense fallback={<Loading />}>
-                    <Signup />
-                  </Suspense>
-                }
-              />
-              <Route
-                path="/notes"
-                element={
-                  <ProtectedRoute>
-                    <Suspense fallback={<Loading />}>
-                      <UserNotes />
-                    </Suspense>
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
-          </div>
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
         </div>
-      </DataContextProvider>
+      </div>
     </UserContextProvider>
   );
 }
