@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between w-full py-4 mx-auto max-w-7xl">
       <Link to="/">
-        <img src="/assets/logo.png" alt="logo" width={56} height={56} />
+        <img src="/assets/logo.webp" alt="logo" width={56} height={56} />
       </Link>
       {user?.email ? (
         <div className="max-w-[8rem] w-[100%]">

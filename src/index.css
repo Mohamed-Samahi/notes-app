@@ -7,8 +7,7 @@
 }
 
 body {
-  background-image: linear-gradient(to top, #c1f0f1, #aad5f8);
-  /* background-color: rgb(0, 0, 128); */
+  background-image: linear-gradient(rgba(124, 124, 123, 0.6), rgba(124, 124, 123, 0.5)), linear-gradient(to top, rgb(250, 229, 125), rgb(253 224 71));
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
