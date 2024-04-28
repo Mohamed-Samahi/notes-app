@@ -16,7 +16,7 @@ const Home = () => {
       <p className="sm:text-xl lg:text-2xl text-center font-semibold font-serif mb-10 max-w-[650px] w-[100%] text-white mt-4">
         Capture your thoughts, organize your day, and stay productive.
       </p>
-      <div className="flex self-center w-32 mt-10">
+      <div className="flex self-center mt-10">
         {user?.email ? (
           <Link to="/notes">
             <Button>My Notes</Button>
