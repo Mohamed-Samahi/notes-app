@@ -10,12 +10,11 @@ const Home = () => {
 
   return (
     <div className="sm:flex sm:flex-col sm:items-center pl-6 absolute top-[40%] translate-y-[-50%] left-[50%] translate-x-[-50%] mx-auto max-w-7xl w-full">
-      <h1 className="mb-2 font-serif text-2xl font-bold text-yellow-300 sm:text-7xl">
-        Tame your work
+      <h1 className="mb-2 font-serif text-2xl font-bold text-center text-yellow-300 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+        Write, Plan, Organize with <br />our notes app.
       </h1>
-      <p className="sm:text-xl text-center font-semibold font-serif mb-10 max-w-[650px] w-[100%] text-[#4091b6] mt-4">
-        organize your life Remember everything and tackle any project with your
-        notes, tasks, and schedule all in one place.
+      <p className="sm:text-xl lg:text-2xl text-center font-semibold font-serif mb-10 max-w-[650px] w-[100%] text-white mt-4">
+        Capture your thoughts, organize your day, and stay productive.
       </p>
       <div className="flex self-center w-32 mt-10">
         {user?.email ? (
