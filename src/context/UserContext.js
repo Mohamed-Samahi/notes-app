@@ -25,7 +25,7 @@ export function UserContextProvider({ children }) {
 
   async function signUp(email, password) {
     await createUserWithEmailAndPassword(auth, email, password);
-    await setDoc(doc(db, "users", email, 'notes'));
+    await setDoc(doc(db, "users", email));
   }
 
   function login(email, password) {
