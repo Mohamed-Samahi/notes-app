@@ -90,7 +90,7 @@ const NotesList = () => {
           <h1 className="text-sm text-gray-400">Not Found!</h1>
         )}
         {filteredNotes.map((note) => (
-          <div key={note.id} className="flex items-center justify-between px-2 my-2 overflow-hidden border rounded-lg border-slate-300">
+          <div key={note.id} className="flex items-center justify-between px-2 py-1 my-2 overflow-hidden border rounded-lg border-slate-300">
             <Note
               id={note.id}
               title={note.title}
