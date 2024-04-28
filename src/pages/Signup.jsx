@@ -16,7 +16,9 @@ const Signup = () => {
 
   const [error, setError] = useState("");
 
-  const { signUp } = UserAuth();
+  const { user, signUp } = UserAuth();
+
+  if (user?.email) navigate('/')
 
   const emailChangeHandler = (e) => {
     setEamil(e.target.value);

@@ -12,9 +12,11 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { login } = UserAuth();
+  const { user, login } = UserAuth();
 
   const navigate = useNavigate();
+
+  if (user?.email) navigate('/')
 
   const emailChangeHandler = (e) => {
     setEamil(e.target.value);
