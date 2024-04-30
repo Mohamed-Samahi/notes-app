@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex items-center justify-between w-full py-4 mx-auto max-w-7xl">
+    <div className="flex items-center justify-between w-full px-6 py-4 mx-auto md:px-10 lg:px-16 xl:px-20 max-w-7xl">
       <Link to="/">
         <img src="/assets/logo.webp" alt="logo" width={56} height={56} />
       </Link>

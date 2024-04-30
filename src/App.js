@@ -15,7 +15,7 @@ const Home = lazy(() => import("./pages/Home"));
 function App() {
   return (
     <UserContextProvider>
-      <div className="flex flex-col items-center w-screen h-screen">
+      <div className="flex flex-col items-center h-screen">
         <Header />
         <div className="flex-1 flex-grow w-full">
           <Routes>
