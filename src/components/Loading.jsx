@@ -2,7 +2,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="cursor-pointer absolute top-0 left-0 w-screen h-screen bg-black opacity-60">
+    <div className="absolute top-0 left-0 bg-black cursor-pointer opacity-60">
       <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-43%]">
         <div role="status">
           <svg
