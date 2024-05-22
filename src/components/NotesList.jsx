@@ -75,7 +75,8 @@ const NotesList = () => {
     setOpenEditModal(true);
   };
 
-  const handleOpenDeleteModal = (noteId) => {
+  const handleOpenDeleteModal = (noteId, noteTitle) => {
+    setModalData({ noteTitle });
     setNoteId(prev => noteId)
     setOpenDeleteModal(true);
   };
@@ -124,7 +125,7 @@ const NotesList = () => {
                 Edit
               </Button>
               <Button
-                onClick={() => handleOpenDeleteModal(note.id)}
+                onClick={() => handleOpenDeleteModal(note.id, note.title)}
                 className="w-[48%] text-center text-[0.65rem] sm:text-xs px-1 py-1 rounded-lg"
               >
                 Delete
@@ -143,6 +144,7 @@ const NotesList = () => {
       {openDeleteModal ?
         <DeleteModal
           noteId={noteId}
+          modalData={modalData}
           handleDelete={handleDelete}
           setOpenDeleteModal={setOpenDeleteModal}
         />
