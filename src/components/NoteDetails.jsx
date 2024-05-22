@@ -29,9 +29,9 @@ const NoteDetails = ({ modalData, setOpenEditModal }) => {
       <div>
         <div
           onClick={() => setOpenEditModal(prev => false)}
-          className="fixed top-0 left-0 w-screen h-screen bg-black cursor-pointer bg-opacity-40"
+          className="fixed top-0 left-0 w-screen h-screen bg-black cursor-pointer bg-opacity-70"
         />
-        <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-43%] p-4 rounded-lg bg-white border border-yellow-3000 z-[1000] w-[60%] m-auto">
+        <div className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-43%] p-4 rounded-lg bg-white border border-yellow-3000 z-[1000] w-[80%] sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[45%] 2xl:w-[35%] m-auto">
           <form onSubmit={updateNote}>
             <input
               type="text"

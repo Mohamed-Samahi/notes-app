@@ -130,15 +130,15 @@ const NotesList = () => {
                 Delete
               </Button>
             </div>
-            {/* edit modal */}
-            {openEditModal && (
-              <NoteDetails
-                modalData={modalData}
-                setOpenEditModal={setOpenEditModal}
-              />
-            )}
           </div>
         ))}
+        {/* edit modal */}
+        {openEditModal && (
+          <NoteDetails
+            modalData={modalData}
+            setOpenEditModal={setOpenEditModal}
+          />
+        )}
       </div>
       {openDeleteModal ?
         <DeleteModal
