@@ -6,6 +6,17 @@
   box-sizing: border-box;
 }
 
+/* Thin scrollbar track */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Thin scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgb(253 224 71 / 1);
+}
+
 body {
   background-image: linear-gradient(rgba(124, 124, 123, 0.6), rgba(124, 124, 123, 0.5)), linear-gradient(to top, rgb(250, 229, 125), rgb(253 224 71));
   background-attachment: fixed;
